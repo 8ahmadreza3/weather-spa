@@ -1,8 +1,11 @@
 import React from 'react';
+
 function NotFound() {
   return ( 
     <>
-      404
+      <div className=''>
+        404
+      </div>
     </>
   );
 }
