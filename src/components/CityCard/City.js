@@ -1,16 +1,17 @@
 import React from 'react'
-import City6 from "./City6.js"
-import City5 from "./City5.js"
-import City4 from "./City4.js"
-import City3 from "./City3.js"
-import City2 from "./City2.js"
-import City1 from "./City1.js"
+import Pressure from "./Pressure.js"
+import RealFeel from "./RealFeel.js"
+import AQI from "./AQI.js"
+import Wind from "./Wind.js"
+import Humidity from "./Humidity.js"
+import CityCard from "./CityCard.js"
+import './CityCard.css'
 
 export default function City() {
   return (
     <div className="cardm">
       <div className="card">
-        <City1 />
+        <CityCard />
         <div className="main">23 °C</div>
         <div className="mainsub">Dunmore, Ireland</div>
       </div>
@@ -18,30 +19,30 @@ export default function City() {
         <div className="upper">
           <div className="humidity">
             <div className="humiditytext">Humidity<br />30%</div>
-            <City2 />
+            <Humidity />
           </div>
           <div className="air">
             <div className="airtext">Wind<br />8 Km/h</div>
-            <City3 />
+            <Wind />
           </div>
         </div>
         <div className="lower">
           <div className="aqi">
-            <City4 />
+            <AQI />
             <div className="aqitext">AQI<br />30</div>
           </div>
           <div className="realfeel">
-            <City5 />
+            <RealFeel />
             <div className="realfeeltext">Real Feel<br />21 °C</div>
           </div>
           <div className="pressure">
-            <City6 />
+            <Pressure />
             <div className="pressuretext">Pressure<br />1012 mbar</div>
           </div>
           <div className="card3">
             Healthy
           </div>
-        </div>
+        </div> 
       </div>
     </div>
   )
