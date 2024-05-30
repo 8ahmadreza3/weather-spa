@@ -1,6 +1,6 @@
 {
-  "cities": [
-    [
+  "apiKey": "5f68fdf35d395cceae836812dfbde224",
+  "cities":[
       {
         "city": "Tehran", 
         "lat": "35.6892", 
@@ -8,9 +8,10 @@
         "country": "Iran", 
         "iso2": "IR", 
         "admin_name": "Tehrān", 
-        "capital": "primary", 
+        "capital": "admin", 
         "population": "14148000", 
-        "population_proper": "9033003"
+        "population_proper": "9033003",
+        "isCapital": "true"
       }, 
       {
         "city": "Mashhad", 
@@ -2213,5 +2214,4 @@
         "population_proper": ""
       }
     ]
-  ]
 }
