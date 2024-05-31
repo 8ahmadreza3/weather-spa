@@ -1,24 +1,20 @@
-/* eslint-disable array-callback-return */
-import React, { useEffect, useState } from 'react'
-import './Home.css'
-import City from '../../components/CityCard/City.js'
+import React, { useEffect, useState } from 'react';
+import './Home.css';
+import City from '../../components/CityCard/City.js';
 
 export default function Home() {
-  const [cities, setCities] = useState([])
+  const [cities, setCities] = useState([]);
 
-  useEffect(()  => {
+  useEffect(() => {
     fetch('http://localhost:8000/cities?capital=admin')
-      .then(res =>
-        res.json()
-      ).then(data => setCities(data))
-  }, [])
-  console.log(cities);
-
+      .then(res => res.json())
+      .then(data => setCities(data));
+  }, []);
   return (
-    <div className='d-flex bg-primary'>
-      {cities?.map((city) => {
-        <City {...city} />
-      })}
+    <div className='container'>
+      {cities?.map((city) => (
+        <City key={city.id} {...city} />
+      ))}
     </div>
-  )
+  );
 }

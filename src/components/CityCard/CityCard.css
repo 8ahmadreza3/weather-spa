@@ -1,5 +1,5 @@
-.cardm {
-  position: absolute;
+.city_cardm {
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,7 +7,7 @@
   left: 50%;
 }
 
-.card {
+.city_card {
   position: absolute;
   width: 250px;
   height: 130px;
@@ -37,7 +37,7 @@
   font-size: 0.6em;
 }
 
-.card2 {
+.city_card2 {
   position: absolute;
   display: flex;
   flex-direction: row;
@@ -49,18 +49,18 @@
   transition: .4s ease-in-out;
 }
 
-.card:hover {
+.city_card:hover {
   background-color: #FFE87C;
   cursor: pointer;
 }
 
-.card:hover + .card2 {
+.city_card:hover + .city_card2 {
   height: 300px;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
 }
 
-.card:hover + .card2 .lower {
+.city_card:hover + .city_card2 .lower {
   top: 20.2em;
 }
 
@@ -109,7 +109,7 @@
   margin-right: 1.8em;
 }
 
-.card3 {
+.city_card3 {
   position: absolute;
   display: flex;
   flex-direction: row;
