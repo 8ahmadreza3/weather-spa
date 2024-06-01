@@ -6,54 +6,52 @@ import Wind from "./Wind.js"
 import Humidity from "./Humidity.js"
 import CityCard from "./CityCard.js"
 import './CityCard.css'
+import { Link } from 'react-router-dom'
 
 export default function City(props) {
   const { lat, lng } = props
-  const [data , setData] = useState()
+  const [data, setData] = useState()
   useEffect(() => {
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5f68fdf35d395cceae836812dfbde224`)
-    .then(res => res.json())
-    .then(data => setData(data))
+      .then(res => res.json())
+      .then(data => setData(data))
     console.log(data);
-  },[])
+  }, [])
+
   return (
-    <div className='card'>
-    <div className="cardm">
-      <div className="city_card">
-        <CityCard />
-        <div className="main">{data?.main.temp} °C</div>
-        <div className="mainsub">{data? data.name : ''} {data? ', ' + data.sys.country : ''}</div>
-      </div>
-      <div className="city_card2">
-        <div className="upper">
-          <div className="humidity">
-            <div className="humiditytext">Humidity<br />30%</div>
-            <Humidity />
+    <div className="card col-4">
+      <CityCard />
+      <div className="card-body">
+        <div className="card-title">
+          <div className="main">
+            {data ? Math.round((data.main.temp - 273.15) * 10) / 10 : ''} °C
           </div>
-          <div className="air">
-            <div className="airtext">Wind<br />8 Km/h</div>
-            <Wind />
+          <div className="mainsub">
+            <p className='fs-5'>{data ? data.name : ''}{data ? ', ' + data.sys.country : ''}</p>
           </div>
         </div>
-        <div className="lower">
-          <div className="aqi">
-            <AQI />
-            <div className="aqitext">AQI<br />30</div>
-          </div>
-          <div className="realfeel">
-            <RealFeel />
-            <div className="realfeeltext">Real Feel<br />21 °C</div>
-          </div>
-          <div className="pressure">
-            <Pressure />
-            <div className="pressuretext">Pressure<br />1012 mbar</div>
-          </div>
-          <div className="city_card3">
-            Healthy
-          </div>
-        </div> 
+        <div className="states">
+          <Humidity />
+          humidity<br />{data?.main.humidity}%
+        </div>
+        <div className="states">
+          <Wind />
+          Wind<br />{data ? Math.round(data.wind.speed * 16.0934) / 10 : ''} Km/h
+        </div>
+        <div className="states">
+          <AQI />
+          AQI<br />30
+        </div>
+        <div className="states">
+          <RealFeel />
+          Real Feel<br />{data ? Math.round((data.main.feels_like - 273.15) * 10) / 10 : ''} °C
+        </div>
+        <div className="pressuretext">
+          <Pressure />
+          Pressure<br />{data?.main.pressure}mbar
+        </div>
+        <Link to={props.city} className="btn btn-primary">See All</Link>
       </div>
-    </div>
     </div>
   )
 }
