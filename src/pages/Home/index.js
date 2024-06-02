@@ -6,12 +6,12 @@ export default function Home() {
   const [cities, setCities] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/cities?city=shiraz')
+    fetch('http://localhost:8000/cities?_sort=city&&capital=admin')
       .then(res => res.json())
       .then(data => setCities(data));
   }, []);
   return (
-    <div className=' p-5'>
+    <div className='container-fluid row'>
       {cities?.map((city) => (
         <City key={city.id} {...city} />
       ))}

@@ -5,7 +5,7 @@ import Cities from "./pages/Cities";
 const routes = [
   { path: "*", element: <NotFound /> },
   { path: "/", element: <Home /> },
-  { path: "/cities/:keyWord", element: <Cities /> }
+  { path: "/cities/:city", element: <Cities /> }
 ];
 
 export default routes;
