@@ -18,15 +18,15 @@ export default function City(props) {
   }, [])
 
   return (
-    <div className='my-1 col-2'>
-      <div className=" card m-auto">
-        <div className="card-body">
+    <div className='my-3 col-xl-2 col-lg-3 col-md-4 col-sm-6'>
+      <div className="card">
+        <div className="card-body m-auto p-0">
           <div className="card-title">
             <div className="d-flex">
               <CityCard />
-              <p className='fs-5 d-block'>{props ? props.city : ''}
-              <br />
-              {data ? Math.round((data.main.temp - 273.15) * 10) / 10 : ''} °C</p>
+              <p className='fs-5'>{props ? props.city : ''}
+                <br />
+                {data ? Math.round((data.main.temp - 273.15) * 10) / 10 : ''} °C</p>
             </div>
           </div>
           <div className='d-flex'>
@@ -43,14 +43,14 @@ export default function City(props) {
             <div>
               <div className="m-2">
                 <RealFeel /><br />
-                Real Feel<br />{data ? Math.round((data.main.feels_like - 273.15) * 10) / 10 : ''} °C
+                Real Feel<br />{data ? Math.round((data.main.feels_like - 273.15) * 10) / 10 : ''}°C
               </div>
               <div className="m-2">
                 <Wind /><br />
                 Wind<br />{data ? Math.round(data.wind.speed * 16.0934) / 10 : ''} Km/h
               </div>
             </div>
-          </div>
+          </div >
           <Link to={"cities/" + props.city} className="btn btn-primary">See Statistics</Link>
         </div>
       </div>
