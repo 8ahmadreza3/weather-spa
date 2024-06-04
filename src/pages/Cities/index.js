@@ -16,11 +16,14 @@ export default function City() {
       .then(res => res.json())
       .then(data => {
         setData(data)
-        console.log(data);
       })
     }
   }, [])
   return (
-    <div></div>
+    <div className='container-fluid'>
+      <div>
+        
+      </div>
+    </div>
   )
 }
