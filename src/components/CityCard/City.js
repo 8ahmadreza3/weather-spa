@@ -4,29 +4,29 @@ import RealFeel from "./RealFeel.js"
 import AQI from "./AQI.js"
 import Wind from "./Wind.js"
 import Humidity from "./Humidity.js"
-import CityCard from "./CityCard.js"
 import './CityCard.css'
 import { Link } from 'react-router-dom'
+import ReactAnimatedWeather from 'react-animated-weather';
 
 export default function City(props) {
   const { lat, lng } = props
   const [data, setData] = useState()
   useEffect(() => {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5f68fdf35d395cceae836812dfbde224`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5f68fdf35d395cceae836812dfbde224&units=metric`)
       .then(res => res.json())
       .then(data => setData(data))
   }, [])
 
   return (
     <div className='my-3 col-xl-2 col-lg-3 col-md-4 col-sm-6'>
-      <div className="card">
+      <div className="card city-card p-0">
         <div className="card-body m-auto p-0">
           <div className="card-title">
             <div className="d-flex">
-              <CityCard />
+              <ReactAnimatedWeather icon={'CLEAR_DAY'} color={'goldenrod'} size={85} animate={true}/>
               <p className='fs-5'>{props ? props.city : ''}
                 <br />
-                {data ? Math.round((data.main.temp - 273.15) * 10) / 10 : ''} °C</p>
+                {data ? data.main.temp : ''} °C</p>
             </div>
           </div>
           <div className='d-flex'>
@@ -43,7 +43,7 @@ export default function City(props) {
             <div>
               <div className="m-2">
                 <RealFeel /><br />
-                Real Feel<br />{data ? Math.round((data.main.feels_like - 273.15) * 10) / 10 : ''}°C
+                Real Feel<br />{data ? data.main.feels_like : ''}°C
               </div>
               <div className="m-2">
                 <Wind /><br />
