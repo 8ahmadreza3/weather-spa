@@ -11,7 +11,6 @@ export default function City() {
       .then(data => setCityData(data[0]));
     if(cityData){
       const {lat, lng} = cityData
-      console.log(lat,lng);
       fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=5f68fdf35d395cceae836812dfbde224`)
       .then(res => res.json())
       .then(data => {

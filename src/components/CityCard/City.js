@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Pressure from "./Pressure.js"
 import RealFeel from "./RealFeel.js"
-import AQI from "./AQI.js"
 import Wind from "./Wind.js"
 import Humidity from "./Humidity.js"
 import './CityCard.css'
@@ -23,8 +22,8 @@ export default function City(props) {
         <div className="card-body m-auto p-0">
           <div className="card-title">
             <div className="d-flex">
-              <ReactAnimatedWeather icon={'CLEAR_DAY'} color={'goldenrod'} size={85} animate={true}/>
-              <p className='fs-5'>{props ? props.city : ''}
+              <ReactAnimatedWeather icon={'CLEAR_DAY'} color={'goldenrod'} size={85} animate={true} />
+              <p className='m-1 fs-5'>{props ? props.city : ''}
                 <br />
                 {data ? data.main.temp : ''} °C</p>
             </div>
@@ -51,7 +50,9 @@ export default function City(props) {
               </div>
             </div>
           </div >
-          <Link to={"cities/" + props.city} className="btn btn-primary">See Statistics</Link>
+          <div className='d-flex m-2'>
+            <Link to={"cities/" + props.city} className="mx-auto btn btn-primary">See Statistics</Link>
+          </div>
         </div>
       </div>
     </div>

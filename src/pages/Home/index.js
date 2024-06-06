@@ -17,12 +17,11 @@ export default function Home() {
   }, []);
   return (
     <>
-      <div className='container-fluid row'>
+      <div className='container-fluid mt-5 row'>
         {cities?.map((city) => (
           <City key={city.id} {...city} />
         ))}
       </div>
-      {console.log(states)}
       <div className='container-fluid row'>
         {states?.map((city) => (
           <StateCard key={city.lat} {...city} />

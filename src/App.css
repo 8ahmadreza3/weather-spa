@@ -1,0 +1,7 @@
+.bg_darkblue{
+  background-image: url('../public/gradient-background.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-origin: content-box;
+}
