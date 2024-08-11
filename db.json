@@ -58,6 +58,17 @@
       "population_proper": "1592492"
     },
     {
+      "city": "SafaShahr",
+      "lat": "30.6102",
+      "lng": "53.1893",
+      "country": "Iran",
+      "iso2": "IR",
+      "admin_name": "Fars",
+      "capital": "minor",
+      "population": "53000",
+      "population_proper": "40000"
+    },
+    {
       "city": "Shiraz",
       "lat": "29.6100",
       "lng": "52.5425",
